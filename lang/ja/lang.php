@@ -18,18 +18,18 @@ return [
     'view'          => 'View',
     'reset'         => 'リセット',
     'export'        => '出力',
-    'batch_delete'  => 'Batch delete',
+    'batch_delete'  => '一括削除',
     'save'          => '保存',
     'refresh'       => '更新',
     'order'         => 'Order',
     'expand'        => 'Expand',
     'collapse'      => 'Collapse',
     'filter'        => 'Filter',
-    'close'         => 'Close',
-    'show'          => 'Show',
-    'entries'       => 'entries',
+    'close'         => '閉じる',
+    'show'          => '表示',
+    'entries'       => '件',
 
-    'action'           => 'Action',
+    'action'           => '操作',
     'title'            => 'タイトル',
     'description'      => '概要',
     'back'             => '戻る',
@@ -39,7 +39,7 @@ return [
     'input'            => '入力',
     'succeeded'        => '成功',
     'failed'           => '失敗',
-    'delete_confirm'   => 'Are you sure to delete this item ?',
+    'delete_confirm'   => '本当に削除してもよろしいでしょうか ?',
     'delete_succeeded' => '削除完了！',
     'delete_failed'    => '削除失敗 !',
     'update_succeeded' => '更新完了！',
@@ -54,7 +54,7 @@ return [
     'deny'          => '権限なし',
 
     'administrator' => '管理者',
-    'roles'         => 'Roles',
+    'roles'         => '役割',
     'permissions'   => '権限',
     'slug'          => 'Slug',
 
@@ -63,11 +63,11 @@ return [
 
     'alert'         => 'アラート',
 
-    'parent_id'     => 'Parent',
-    'icon'          => 'Icon',
+    'parent_id'     => '親',
+    'icon'          => 'アイコン',
     'uri'           => 'URI',
 
-    'operation_log'       => 'Operation log',
+    'operation_log'       => '操作履歴',
     'parent_select_error' => 'Parent select error',
 
     'pagination'    => [
