@@ -8,6 +8,8 @@ return [
     'username'      => 'ユーザー名',
     'password'      => 'パスワード',
     'remember_me'   => 'Remember me',
+    'user_setting'  => 'ユーザー設定',
+    'avatar'        => 'アバター',
 
     'list'          => 'リスト',
     'new'           => '新規',
@@ -16,6 +18,7 @@ return [
     'remove'        => '取り除く',
     'edit'          => '編集',
     'view'          => 'View',
+    'browse'        => '選択',
     'reset'         => 'リセット',
     'export'        => '出力',
     'batch_delete'  => '一括削除',
