@@ -7,6 +7,7 @@ return [
     'name'          => '名前',
     'username'      => 'ユーザー名',
     'password'      => 'パスワード',
+    'password_confirmation' => 'パスワード（確認）',
     'remember_me'   => 'Remember me',
     'user_setting'  => 'ユーザー設定',
     'avatar'        => 'アバター',
