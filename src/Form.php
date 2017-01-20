@@ -1002,6 +1002,19 @@ class Form
     }
 
     /**
+     * Set action for form.
+     *
+     * @param string $action
+     * @return $this
+     */
+    public function setAction($action)
+    {
+        $this->builder()->setAction($action);
+
+        return $this;
+    }
+
+    /**
      * Get current resource route url.
      *
      * @param int $slice
@@ -1031,7 +1044,7 @@ class Form
         try {
             return $this->builder->render();
         } catch (\Exception $e) {
-            return with(new Handle($e))->render();
+            return Handle::renderException($e);
         }
     }
 

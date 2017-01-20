@@ -7,7 +7,7 @@
         <!--
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="{{ asset ("/packages/admin/AdminLTE/dist/img/user2-160x160.jpg")}}" class="img-circle" alt="User Image">
+                <img src="{{ Admin::user()->avatar }}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
                 <p>{{ Admin::user()->name }}</p>
