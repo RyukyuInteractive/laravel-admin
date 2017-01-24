@@ -101,7 +101,7 @@ class AuthController extends Controller
 
             $form->display('username', trans('admin::lang.username'));
             $form->text('name', trans('admin::lang.name'))->rules('required');
-            $form->image('avatar', trans('admin::lang.avatar'));
+            //$form->image('avatar', trans('admin::lang.avatar'));
             $form->password('password', trans('admin::lang.password'))->rules('confirmed|required');
             $form->password('password_confirmation', trans('admin::lang.password_confirmation'))->rules('required')
                 ->default(function ($form) {
