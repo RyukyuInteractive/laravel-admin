@@ -4,6 +4,7 @@ return [
     'online'        => 'オンライン',
     'login'         => 'ログイン',
     'logout'        => 'ログアウト',
+    'setting'       => '設定',
     'name'          => '名前',
     'username'      => 'ユーザー名',
     'password'      => 'パスワード',
