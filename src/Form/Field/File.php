@@ -6,6 +6,7 @@ use Encore\Admin\Form\Field;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\MessageBag;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -160,6 +161,16 @@ class File extends Field
      */
     public function disk($disk)
     {
+        if (! array_key_exists($disk, config('filesystems.disks'))) {
+
+            $error = new MessageBag([
+                'title'   => 'Config error.',
+                'message' => "Disk [$disk] not configured, please add a disk config in `config/filesystems.php`.",
+            ]);
+
+            return session()->flash('error', $error);
+        }
+
         $this->storage = Storage::disk($disk);
 
         return $this;
@@ -193,15 +204,11 @@ class File extends Field
             return false;
         }
 
-        if (!array_has($input, $this->column)) {
-            return false;
-        }
-
         $rules[$this->column] = $fieldRules;
         $attributes[$this->column] = $this->label;
 
         if ($this->multiple) {
-            list($rules, $input) = $this->hydrateFiles(array_get($input, $this->column));
+            list($rules, $input) = $this->hydrateFiles(array_get($input, $this->column, []));
         }
 
         return Validator::make($input, $rules, [], $attributes);
@@ -425,6 +432,8 @@ EOT;
     public function render()
     {
         $this->options['initialCaption'] = $this->initialCaption($this->value);
+        $this->options['removeLabel'] = trans('admin::lang.remove');
+        $this->options['browseLabel'] = trans('admin::lang.browse');
 
         if (!empty($this->value)) {
             $this->options['initialPreview'] = $this->preview();
