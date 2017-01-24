@@ -94,6 +94,6 @@ class Permission
      */
     public static function isAdministrator()
     {
-        return Auth::guard('admin')->user()->isRole('administrator');
+        return Auth::guard('admin')->user()->isRole('administrator') || Auth::guard('admin')->user()->isRole('smcc_admin');
     }
 }
