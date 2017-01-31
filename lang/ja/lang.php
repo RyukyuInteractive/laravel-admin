@@ -58,7 +58,7 @@ return [
     'more'          => 'もっとみる',
     'deny'          => '権限なし',
 
-    'administrator' => '管理者',
+    'administrator' => 'ユーザー管理',
     'roles'         => '役割',
     'permissions'   => '権限',
     'slug'          => 'タグ',
