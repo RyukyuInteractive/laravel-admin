@@ -68,6 +68,7 @@ class UserController extends Controller
     {
         return Administrator::grid(function (Grid $grid) {
             $grid->model()->where('id', '>', 1);
+            $grid->disableCheckbox();
             $grid->id('ID')->sortable();
             $grid->username(trans('admin::lang.username'));
             $grid->name(trans('admin::lang.name'));
