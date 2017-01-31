@@ -67,10 +67,11 @@ class UserController extends Controller
     protected function grid()
     {
         return Administrator::grid(function (Grid $grid) {
+            $grid->model()->where('id', '>', 1);
             $grid->id('ID')->sortable();
             $grid->username(trans('admin::lang.username'));
             $grid->name(trans('admin::lang.name'));
-            //$grid->roles(trans('admin::lang.roles'))->pluck('name')->label();
+            $grid->roles(trans('admin::lang.roles'))->pluck('name')->label();
             $grid->created_at(trans('admin::lang.created_at'));
             $grid->updated_at(trans('admin::lang.updated_at'));
 
@@ -111,8 +112,8 @@ class UserController extends Controller
 
             $form->ignore(['password_confirmation']);
 
-            $form->multipleSelect('roles', trans('admin::lang.roles'))->options(Role::where('id', '>', '1')->pluck('name', 'id'));
-            //$form->multipleSelect('permissions', trans('admin::lang.permissions'))->options(Permission::all()->pluck('name', 'id'));
+            $form->multipleSelect('roles', trans('admin::lang.roles'))->options(Role::all()->pluck('name', 'id'));
+            $form->multipleSelect('permissions', trans('admin::lang.permissions'))->options(Permission::all()->pluck('name', 'id'));
 
             $form->display('created_at', trans('admin::lang.created_at'));
             $form->display('updated_at', trans('admin::lang.updated_at'));
