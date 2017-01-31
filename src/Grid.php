@@ -104,6 +104,13 @@ class Grid
     protected $keyName = 'id';
 
     /**
+     * Allow checkBox
+     *
+     * @var bool
+     */
+    protected $allowCheckbox = true;
+
+    /**
      * Allow batch deletion.
      *
      * @var bool
@@ -395,6 +402,18 @@ class Grid
     }
 
     /**
+     * Disable checkBox.
+     *
+     * @return $this
+     */
+    public function disableCheckbox()
+    {
+        $this->allowCheckbox = false;
+
+        return $this;
+    }
+
+    /**
      * Disable all actions.
      *
      * @return $this
@@ -454,11 +473,14 @@ class Grid
         $column = new Column('__row_selector__', ' ');
         $column->setGrid($this);
 
-        $column->display(function ($value) use ($grid, $column) {
-            $actions = new RowSelector($value, $grid, $column, $this);
+        $allowCheckbox = $this->allowCheckbox;
 
+        if ($allowCheckbox) {
+          $column->display(function ($value) use ($grid, $column, $allowCheckbox) {
+            $actions = new RowSelector($value, $grid, $column, $this);
             return $actions->display();
-        });
+          });
+        }
 
         $this->columns->prepend($column);
     }
