@@ -14,9 +14,9 @@ return [
     'user_setting'  => 'ユーザー設定',
     'avatar'        => 'アバター',
 
-    'list'          => 'リスト',
+    'list'          => '一覧',
     'new'           => '新規',
-    'create'        => '作成',
+    'create'        => '新規追加',
     'delete'        => '削除',
     'remove'        => '取り除く',
     'edit'          => '編集',
