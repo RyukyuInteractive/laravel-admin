@@ -506,7 +506,13 @@ class Field
             }
         }
 
-        return Validator::make($input, $rules, [], $attributes);
+        $messages = [
+          'min' => '短すぎます。:min文字以上にしてください。',
+          'alpha_num' => '半角英数字のみにしてください。',
+          'end_date.after' => '開始日時よりあとに設定してください。',
+        ];
+
+        return Validator::make($input, $rules, $messages, $attributes);
     }
 
     /**
